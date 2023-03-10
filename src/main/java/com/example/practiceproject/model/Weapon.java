@@ -1,21 +1,26 @@
 package com.example.practiceproject.model;
 
-//@XmlRootElement(name = "Weapon")
-//@XmlAccessorType(XmlAccessType.FIELD)
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Weapon")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Weapon {
-//    @XmlElement(name = "SerialNumber")
+    @XmlElement(name = "SerialNumber")
     private Integer serial_number;
-//    @XmlElement(name = "Type")
+    @XmlElement(name = "Type")
     private String type;
-//    @XmlElement(name = "Name")
+    @XmlElement(name = "Name")
     private String name;
-//    @XmlElement(name = "SightingRange")
+    @XmlElement(name = "SightingRange")
     private Double sighting_range;
-//    @XmlElement(name = "Capacity")
+    @XmlElement(name = "Capacity")
     private Integer capacity;
-//    @XmlElement(name = "Weight")
+    @XmlElement(name = "Weight")
     private Double weight;
-//    @XmlElement(name = "RateOfFire")
+    @XmlElement(name = "RateOfFire")
     private Integer rate_of_fire;
 
     public Integer getSerialNumber() {
@@ -74,22 +79,22 @@ public class Weapon {
         this.rate_of_fire = rate_of_fire;
     }
 
-//    @Override
-//    public String toString() {
-//        return "<Weapon> \n    <SerialNumber>" +
-//                ((this.serial_number == null) ? "null" : this.serial_number.toString()) +
-//                "</Serial_number> \n    <Type>" +
-//                ((this.type == null) ? "null" : this.type) +
-//                "</Type> \n    <Name>" +
-//                ((this.name == null) ? "null" : this.name) +
-//                "</Name> \n    <SightingRange>" +
-//                ((this.sighting_range == null) ? "null" : this.sighting_range.toString()) +
-//                "</SightingRange> \n    <Capacity>" +
-//                ((this.capacity == null) ? "null" : this.capacity.toString()) +
-//                "</Capacity> \n    <Weight>" +
-//                ((this.weight == null) ? "null" : this.weight.toString()) +
-//                "</Weight> \n    <RateOfFire>" +
-//                ((this.rate_of_fire == null) ? "null" : this.rate_of_fire.toString()) +
-//                "</RateOfFire> \n</Weapon>";
-//    }
+    @Override
+    public String toString() {
+        return "<Weapon> \n    <SerialNumber>" +
+                ((this.serial_number == null) ? "null" : this.serial_number.toString()) +
+                "</Serial_number> \n    <Type>" +
+                ((this.type == null) ? "null" : this.type) +
+                "</Type> \n    <Name>" +
+                ((this.name == null) ? "null" : this.name) +
+                "</Name> \n    <SightingRange>" +
+                ((this.sighting_range == null) ? "null" : this.sighting_range.toString()) +
+                "</SightingRange> \n    <Capacity>" +
+                ((this.capacity == null) ? "null" : this.capacity.toString()) +
+                "</Capacity> \n    <Weight>" +
+                ((this.weight == null) ? "null" : this.weight.toString()) +
+                "</Weight> \n    <RateOfFire>" +
+                ((this.rate_of_fire == null) ? "null" : this.rate_of_fire.toString()) +
+                "</RateOfFire> \n</Weapon>";
+    }
 }
