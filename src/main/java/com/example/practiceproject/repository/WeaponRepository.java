@@ -26,7 +26,6 @@ public class WeaponRepository implements Repository {
 
         WeaponMap weaponMap = new WeaponMap();
         weaponMap.setWeaponMap(WEAPON_REPOSITORY_MAP);
-        jaxbMarshaller.marshal(weaponMap, System.out);
         jaxbMarshaller.marshal(weaponMap, new File("src/main/java/com/example/practiceproject/repository/weapons.xml"));
     }
 
