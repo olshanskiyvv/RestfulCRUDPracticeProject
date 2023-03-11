@@ -23,7 +23,7 @@ main {
 }
 
 .weapon {
-    background-color: cornflowerblue;
+    background-color: gray;
     margin: 20px;
     width: 60%;
 }
@@ -35,7 +35,7 @@ main {
 }
 
 .icons {
-    position: fixed;
+    position: absolute;
     left: 40%;
 }
 

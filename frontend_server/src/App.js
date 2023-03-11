@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isUpdated: true,
       weapons: [
           {
             serialNumber: 1,
@@ -50,6 +51,8 @@ class App extends React.Component {
       </aside>
     </div>)
   }
+
+
 }
 
 export default App;
