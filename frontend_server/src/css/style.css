@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: cadetblue;
+    color: black;
+}
+
+header {
+    background-color: #3a7c80;
+    padding: 20px;
+}
+
+main {
+    display: inline-table;
+    width: 70%;
+}
+
+.weapons {
+    align-content: center;
+}
+
+.weapon {
+    background-color: #71c8cc;
+    margin: 20px;
+    width: 60%;
+}
+
+.weapon h3,
+.weapon div {
+    display: block;
+    margin: 10px;
+}
+
+.icons {
+    position: absolute;
+    left: 40%;
+}
+
+
+.delete-icon:hover,
+.edit-icon:hover {
+    opacity: 0.5;
+}
+
+aside {
+    margin: 20px;
+    display: inline-table;
+    width: 20%;
+}
+
+form input,
+form button {
+    width: 100%;
+    padding: 15px 5%;
+    margin-bottom: 10px;
+    border: 0;
+    outline: none;
+    background-color: #71c8cc;
+    color: black;
+}
+
+form input {
+    width: 90%;
+}
+
+font button {
+    width: 100%;
+}
+
+.weapon form input,
+.weapon form button {
+    background-color: #58a9ad;
+}
