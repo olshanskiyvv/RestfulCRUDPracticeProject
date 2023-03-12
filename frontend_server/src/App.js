@@ -30,6 +30,7 @@ class App extends React.Component {
         <Weapons onEdit={this.updateData} onDelete={this.deleteData} weapons={this.state.weapons} />
       </main>
       <aside>
+        <h3>Добавить новую запись</h3>
         <WeaponForm toDo={this.addData} weapon={null} buttonText="Добавить"/>
       </aside>
     </div>)
@@ -37,20 +38,20 @@ class App extends React.Component {
 
   updateData(id, data) {
     axios.put(baseUrl + "weapons/" + id, data)
-        .then(response => console.log("Изменение\n" + response))
+        .then(response => {
+          console.log("Изменение\n" + response)
+          this.getAllData()
+        })
         .catch(error => console.log(error))
-
-    setTimeout(() => {this.getAllData()}, 100)
-    console.log(this.state.weapons)
   }
 
   deleteData(id) {
     axios.delete(baseUrl + "weapons/" + id)
-        .then(response => console.log("Удаление\n" + response))
+        .then(response => {
+          console.log("Удаление\n" + response)
+          this.getAllData()
+        })
         .catch(error => console.log(error))
-
-    setTimeout(() => {this.getAllData()}, 100)
-    console.log(this.state.weapons)
   }
 
   getAllData() {
@@ -63,19 +64,17 @@ class App extends React.Component {
           this.setState({weapons: []}, () => console.log("Данных нет"))
           console.log("Ошибка: " + error)
         })
-
-    console.log(this.state.weapons)
   }
 
   addData(data) {
     console.log(data)
 
     axios.post(baseUrl, data)
-        .then(response => console.log("Добавление\n" + response))
+        .then(response => {
+          console.log("Добавление\n" + response)
+          this.getAllData()
+        })
         .catch(error => console.log(error))
-
-    setTimeout(() => {this.getAllData()}, 100)
-    console.log(this.state.weapons)
   }
 
 }
