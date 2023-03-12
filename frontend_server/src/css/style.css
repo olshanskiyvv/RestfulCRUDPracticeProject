@@ -4,12 +4,12 @@
 }
 
 body {
-    background-color: #333;
-    color: white;
+    background-color: cadetblue;
+    color: black;
 }
 
 header {
-    background-color: #222;
+    background-color: #3a7c80;
     padding: 20px;
 }
 
@@ -23,7 +23,7 @@ main {
 }
 
 .weapon {
-    background-color: gray;
+    background-color: #71c8cc;
     margin: 20px;
     width: 60%;
 }
@@ -51,18 +51,26 @@ aside {
     width: 20%;
 }
 
-aside form input,
-aside form button {
-    width: 90%;
+form input,
+form button {
+    width: 100%;
     padding: 15px 5%;
     margin-bottom: 10px;
     border: 0;
     outline: none;
-    background-color: gray;
-    color: white;
+    background-color: #71c8cc;
+    color: black;
 }
 
-aside font button {
+form input {
+    width: 90%;
+}
+
+font button {
     width: 100%;
 }
 
+.weapon form input,
+.weapon form button {
+    background-color: #58a9ad;
+}
