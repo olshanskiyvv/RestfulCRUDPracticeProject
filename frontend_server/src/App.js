@@ -41,6 +41,7 @@ class App extends React.Component {
         .catch(error => console.log(error))
 
     setTimeout(() => {this.getAllData()}, 100)
+    console.log(this.state.weapons)
   }
 
   deleteData(id) {
@@ -49,15 +50,21 @@ class App extends React.Component {
         .catch(error => console.log(error))
 
     setTimeout(() => {this.getAllData()}, 100)
+    console.log(this.state.weapons)
   }
 
   getAllData() {
     axios.get(baseUrl)
         .then((request) => {
           console.log("Загрузка данных")
-          this.setState({weapons: request.data})
+          this.setState({weapons: []}, () => {this.setState({weapons: request.data})})
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          this.setState({weapons: []}, () => console.log("Данных нет"))
+          console.log("Ошибка: " + error)
+        })
+
+    console.log(this.state.weapons)
   }
 
   addData(data) {
@@ -68,6 +75,7 @@ class App extends React.Component {
         .catch(error => console.log(error))
 
     setTimeout(() => {this.getAllData()}, 100)
+    console.log(this.state.weapons)
   }
 
 }
