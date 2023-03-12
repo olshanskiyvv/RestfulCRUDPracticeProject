@@ -26,7 +26,7 @@ class WeaponForm extends React.Component {
 
     render() {
         return (
-            <form ref={el => {this.form = el}}>
+            <form ref={(el) => {this.myForm = el}}>
                 <input placeholder="Наименование оружия"
                        onChange={value => this.setState({name: value.target.value})}
                        defaultValue={this.state.name}/>
@@ -46,11 +46,19 @@ class WeaponForm extends React.Component {
                        onChange={value => this.setState({rateOfFire: value.target.value})}
                        defaultValue={this.state.rateOfFire}/>
                 <button type="button" onClick={() => {
-                    this.form.reset()
+                    this.myForm.reset()
                     if (this.props.weapon === null)
                         this.props.toDo(this.state)
                     else
                         this.props.toDo(this.props.weapon.serialNumber, this.state)
+                    this.setState({
+                        type: null,
+                        name: null,
+                        capacity: null,
+                        weight: null,
+                        sightingRange: null,
+                        rateOfFire: null,
+                    })
                 }}>{this.props.buttonText}</button>
             </form>
         )
