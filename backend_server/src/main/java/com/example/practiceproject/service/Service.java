@@ -4,6 +4,7 @@ import com.example.practiceproject.model.Weapon;
 import com.example.practiceproject.repository.IRepository;
 import com.example.practiceproject.repository.Repository;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -48,5 +49,10 @@ public class Service implements IService {
     @Override
     public boolean delete(Integer serial_number) {
         return WEAPON_REPOSITORY.delete(serial_number);
+    }
+
+    @Override
+    public File getData() {
+        return WEAPON_REPOSITORY.getData();
     }
 }

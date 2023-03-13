@@ -4,10 +4,16 @@ import com.example.practiceproject.model.Weapon;
 import com.example.practiceproject.service.Service;
 import com.example.practiceproject.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.List;
 
 @RestController
@@ -61,4 +67,20 @@ public class Controller {
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
+
+    @GetMapping(value = "/download")
+    public ResponseEntity<?> download() {
+        Resource resource = null;
+        File file = iService.getData();
+        try {
+            resource = new UrlResource(file.toURI());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_XML)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"weapons.xml\"")
+                .body(resource);
+    }
+
 }

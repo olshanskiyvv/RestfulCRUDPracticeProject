@@ -99,4 +99,9 @@ public class Repository implements IRepository {
         }
         return result;
     }
+
+    @Override
+    public File getData() {
+        return new File("src/main/java/com/example/practiceproject/repository/weapons.xml");
+    }
 }
