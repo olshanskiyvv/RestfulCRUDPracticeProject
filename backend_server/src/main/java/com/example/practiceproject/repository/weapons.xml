@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Weapons>
-    <weaponMap/>
+    <weaponMap>
+        <entry>
+            <key>1</key>
+            <value>
+                <SerialNumber>1</SerialNumber>
+                <Name>M16</Name>
+            </value>
+        </entry>
+        <entry>
+            <key>2</key>
+            <value>
+                <SerialNumber>2</SerialNumber>
+                <Name>АК-47</Name>
+            </value>
+        </entry>
+    </weaponMap>
 </Weapons>
