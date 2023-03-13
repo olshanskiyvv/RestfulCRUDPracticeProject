@@ -11,6 +11,7 @@ body {
 header {
     background-color: #3a7c80;
     padding: 20px;
+    height: 30%;
 }
 
 main {
@@ -20,6 +21,7 @@ main {
 
 .weapons {
     align-content: center;
+    margin: 20px;
 }
 
 .weapon {
@@ -46,9 +48,11 @@ main {
 }
 
 aside {
-    margin: 20px;
     display: inline-table;
     width: 20%;
+    position: absolute;
+    top: 25%;
+    right: 5%;
 }
 
 form input,
@@ -83,12 +87,13 @@ input::placeholder {
 header h2,
 header div {
     display: inline-table;
-    margin: 10px;
 }
 
 .data {
+    width: 20%;
     position: absolute;
-    right: 0;
+    right: 5%;
+    top: 10px;
 }
 
 
@@ -102,8 +107,11 @@ header div {
     opacity: 0.5;
 }
 
-
-
 input::placeholder {
     color: #6a4e4d;
+}
+
+header form input,
+header form button {
+    height: 70%;
 }
