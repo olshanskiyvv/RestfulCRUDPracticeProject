@@ -116,8 +116,11 @@ public class Repository implements IRepository {
         Path path = Paths.get("src/main/java/com/example/practiceproject/repository/weapons.xml");
         try {
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+            this.XmlToMap();
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
+        } catch (JAXBException e) {
             return false;
         }
         return true;
