@@ -11,6 +11,7 @@ body {
 header {
     background-color: #3a7c80;
     padding: 20px;
+    height: 30%;
 }
 
 main {
@@ -20,6 +21,7 @@ main {
 
 .weapons {
     align-content: center;
+    margin: 20px;
 }
 
 .weapon {
@@ -46,9 +48,11 @@ main {
 }
 
 aside {
-    margin: 20px;
     display: inline-table;
     width: 20%;
+    position: absolute;
+    top: 25%;
+    right: 5%;
 }
 
 form input,
@@ -78,4 +82,36 @@ font button {
 
 input::placeholder {
     color: #6a4e4d;
+}
+
+header h2,
+header div {
+    display: inline-table;
+}
+
+.data {
+    width: 20%;
+    position: absolute;
+    right: 5%;
+    top: 10px;
+}
+
+
+.download-icon,
+.upload-icon {
+    margin-right: 60px;
+}
+
+.download-icon:hover,
+.upload-icon:hover {
+    opacity: 0.5;
+}
+
+input::placeholder {
+    color: #6a4e4d;
+}
+
+header form input,
+header form button {
+    height: 70%;
 }
