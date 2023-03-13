@@ -2,12 +2,18 @@ package com.example.practiceproject.repository;
 
 import com.example.practiceproject.model.Weapon;
 import com.example.practiceproject.model.WeaponMap;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -103,5 +109,17 @@ public class Repository implements IRepository {
     @Override
     public File getData() {
         return new File("src/main/java/com/example/practiceproject/repository/weapons.xml");
+    }
+
+    @Override
+    public boolean setData(MultipartFile file) {
+        Path path = Paths.get("src/main/java/com/example/practiceproject/repository/weapons.xml");
+        try {
+            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

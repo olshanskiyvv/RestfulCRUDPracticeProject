@@ -1,6 +1,7 @@
 package com.example.practiceproject.repository;
 
 import com.example.practiceproject.model.Weapon;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.List;
@@ -13,4 +14,6 @@ public interface IRepository {
     boolean delete(Integer serial_number);
 
     File getData();
+
+    boolean setData(MultipartFile file);
 }

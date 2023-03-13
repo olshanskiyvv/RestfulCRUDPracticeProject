@@ -3,6 +3,7 @@ package com.example.practiceproject.service;
 import com.example.practiceproject.model.Weapon;
 import com.example.practiceproject.repository.IRepository;
 import com.example.practiceproject.repository.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.List;
@@ -54,5 +55,10 @@ public class Service implements IService {
     @Override
     public File getData() {
         return WEAPON_REPOSITORY.getData();
+    }
+
+    @Override
+    public boolean setData(MultipartFile file) {
+        return WEAPON_REPOSITORY.setData(file);
     }
 }
