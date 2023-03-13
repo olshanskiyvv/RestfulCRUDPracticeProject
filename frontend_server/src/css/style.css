@@ -74,3 +74,8 @@ font button {
 .weapon form button {
     background-color: #58a9ad;
 }
+
+
+input::placeholder {
+    color: #6a4e4d;
+}
