@@ -25,7 +25,7 @@ class App extends React.Component {
 
   render() {
     return (<div>
-      <Header title="Реестр огнестрельного оружия" />
+      <Header title="Реестр огнестрельного оружия" urlOfData={baseUrl + "download"} />
       <main>
         <Weapons onEdit={this.updateData} onDelete={this.deleteData} weapons={this.state.weapons} />
       </main>

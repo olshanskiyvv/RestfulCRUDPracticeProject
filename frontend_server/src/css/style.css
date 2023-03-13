@@ -79,3 +79,31 @@ font button {
 input::placeholder {
     color: #6a4e4d;
 }
+
+header h2,
+header div {
+    display: inline-table;
+    margin: 10px;
+}
+
+.data {
+    position: absolute;
+    right: 0;
+}
+
+
+.download-icon,
+.upload-icon {
+    margin-right: 60px;
+}
+
+.download-icon:hover,
+.upload-icon:hover {
+    opacity: 0.5;
+}
+
+
+
+input::placeholder {
+    color: #6a4e4d;
+}
