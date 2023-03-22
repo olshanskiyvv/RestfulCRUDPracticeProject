@@ -2,6 +2,8 @@ version: '3'
 
 services:
   frontend:
+    depends_on:
+      - backend
     build: ./frontend_server
     image: front_image
     container_name: frontend
@@ -13,3 +15,9 @@ services:
     environment:
       - HOST_IP=host.docker.internal
   
+  backend:
+    build: ./backend_server
+    image: back_image
+    container_name: backend
+    ports:
+      - 8080:8080
