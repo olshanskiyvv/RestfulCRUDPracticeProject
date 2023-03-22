@@ -2,6 +2,7 @@ package com.example.practiceproject.repository;
 
 import com.example.practiceproject.model.Weapon;
 import com.example.practiceproject.model.WeaponMap;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.bind.JAXBContext;
@@ -45,6 +46,7 @@ public class Repository implements IRepository {
     }
 
     @Override
+    @Async
     public void add(Weapon weapon) {
         WEAPON_REPOSITORY_MAP.put(weapon.getSerialNumber(), weapon);
         try {
@@ -55,6 +57,7 @@ public class Repository implements IRepository {
     }
 
     @Override
+    @Async
     public Weapon read(Integer serial_number) {
         if (WEAPON_REPOSITORY_MAP.isEmpty()) {
             try {
@@ -67,6 +70,7 @@ public class Repository implements IRepository {
     }
 
     @Override
+    @Async
     public List<Weapon> readAll() {
         if (WEAPON_REPOSITORY_MAP.isEmpty()) {
             try {
@@ -79,6 +83,7 @@ public class Repository implements IRepository {
     }
 
     @Override
+    @Async
     public boolean update(Weapon weapon, Integer serial_number) {
         if (WEAPON_REPOSITORY_MAP.containsKey(serial_number)) {
             try {
@@ -95,6 +100,7 @@ public class Repository implements IRepository {
     }
 
     @Override
+    @Async
     public boolean delete(Integer serial_number) {
         boolean result = false;
         try {
@@ -107,11 +113,13 @@ public class Repository implements IRepository {
     }
 
     @Override
+    @Async
     public File getData() {
         return new File("src/main/java/com/example/practiceproject/repository/weapons.xml");
     }
 
     @Override
+    @Async
     public boolean setData(MultipartFile file) {
         Path path = Paths.get("src/main/java/com/example/practiceproject/repository/weapons.xml");
         try {

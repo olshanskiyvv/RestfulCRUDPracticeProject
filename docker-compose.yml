@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  frontend:
+    depends_on:
+      - backend
+    build: ./frontend_server
+    image: front_image
+    container_name: frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - /app/node_modules
+  
+  backend:
+    build: ./backend_server
+    image: back_image
+    container_name: backend
+    ports:
+      - 8080:8080

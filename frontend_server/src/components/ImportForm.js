@@ -1,8 +1,4 @@
 import React from "react";
-import { FaDownload } from "react-icons/fa";
-import { MdCloudUpload } from "react-icons/md";
-import axios from "axios";
-import fileDownload from 'js-file-download'
 
 class ImportForm extends React.Component {
     constructor(props, context) {
