@@ -41,19 +41,18 @@ class Header extends React.Component {
 
     uploadFile(file) {
         this.setState({showForm: !this.state.showForm})
-        const config =
-            axios.post(this.props.urlBase + "upload",
-                {file: file},
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
-                })
-                .then(response => {
-                    console.log("Экспорт файла\n" + response)
-                    this.props.updateList()
-                })
-                .catch(error => console.log(error))
+        axios.post(this.props.urlBase + "upload",
+            {file: file},
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(response => {
+                console.log("Экспорт файла\n" + response)
+                this.props.updateList()
+            })
+            .catch(error => console.log(error))
     }
 }
 

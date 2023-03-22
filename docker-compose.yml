@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./frontend_server
+    image: front_image
+    container_name: frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend_server:/app
+      - /app/node_modules
+    environment:
+      - HOST_IP=host.docker.internal
+  
