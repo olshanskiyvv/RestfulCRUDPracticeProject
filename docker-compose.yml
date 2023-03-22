@@ -10,10 +10,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./frontend_server:/app
       - /app/node_modules
-    environment:
-      - HOST_IP=host.docker.internal
   
   backend:
     build: ./backend_server
