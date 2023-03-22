@@ -1,0 +1,6 @@
+frontend_server/node_modules
+.gitignore
+.idea
+build
+target
+.DS_Store
