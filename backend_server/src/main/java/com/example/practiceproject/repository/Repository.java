@@ -24,6 +24,7 @@ import java.util.Map;
 public class Repository implements IRepository {
 
     private static final Map<Integer, Weapon> WEAPON_REPOSITORY_MAP = new HashMap<>();
+    private static final String filePath = "src/main/java/com/example/practiceproject/repository/weapons.xml";
 
     private void MapToXml() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(WeaponMap.class);
@@ -33,13 +34,13 @@ public class Repository implements IRepository {
 
         WeaponMap weaponMap = new WeaponMap();
         weaponMap.setWeaponMap(WEAPON_REPOSITORY_MAP);
-        jaxbMarshaller.marshal(weaponMap, new File("src/main/java/com/example/practiceproject/repository/weapons.xml"));
+        jaxbMarshaller.marshal(weaponMap, new File(filePath));
     }
 
     private void XmlToMap() throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(WeaponMap.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        WeaponMap weaponMap = (WeaponMap) jaxbUnmarshaller.unmarshal(new File("src/main/java/com/example/practiceproject/repository/weapons.xml") );
+        WeaponMap weaponMap = (WeaponMap) jaxbUnmarshaller.unmarshal(new File(filePath));
 
         WEAPON_REPOSITORY_MAP.clear();
         WEAPON_REPOSITORY_MAP.putAll(weaponMap.getWeaponMap());
@@ -115,13 +116,13 @@ public class Repository implements IRepository {
     @Override
     @Async
     public File getData() {
-        return new File("src/main/java/com/example/practiceproject/repository/weapons.xml");
+        return new File(filePath);
     }
 
     @Override
     @Async
     public boolean setData(MultipartFile file) {
-        Path path = Paths.get("src/main/java/com/example/practiceproject/repository/weapons.xml");
+        Path path = Paths.get(Repository.filePath);
         try {
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
             this.XmlToMap();
