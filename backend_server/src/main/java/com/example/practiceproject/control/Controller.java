@@ -20,22 +20,22 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class Controller {
-    private final IService iService;
+    private final IService service;
 
     @Autowired
     public Controller(Service service) {
-        this.iService = service;
+        this.service = service;
     }
 
     @PostMapping(value = "/")
     public ResponseEntity<?> create(@RequestBody Weapon weapon) {
-        iService.create(weapon);
+        service.create(weapon);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/")
     public ResponseEntity<List<Weapon>> read() {
-        final List<Weapon> weapons = iService.readAll();
+        final List<Weapon> weapons = service.readAll();
 
         return weapons != null &&  !weapons.isEmpty()
                 ? new ResponseEntity<>(weapons, HttpStatus.OK)
@@ -44,7 +44,7 @@ public class Controller {
 
     @GetMapping(value = "/weapons/{id}")
     public ResponseEntity<Weapon> read(@PathVariable(name = "id") Integer serial_number) {
-        final Weapon weapon = iService.read(serial_number);
+        final Weapon weapon = service.read(serial_number);
 
         return weapon != null
                 ? new ResponseEntity<>(weapon, HttpStatus.OK)
@@ -53,7 +53,7 @@ public class Controller {
 
     @PutMapping(value = "/weapons/{id}")
     public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody Weapon weapon) {
-        final boolean updated = iService.update(weapon, id);
+        final boolean updated = service.update(weapon, id);
 
         return updated
                 ? new ResponseEntity<>(HttpStatus.OK)
@@ -62,7 +62,7 @@ public class Controller {
 
     @DeleteMapping(value = "/weapons/{id}")
     public ResponseEntity<?> delete(@PathVariable(name = "id") int id) {
-        final boolean deleted = iService.delete(id);
+        final boolean deleted = service.delete(id);
 
         return deleted
                 ? new ResponseEntity<>(HttpStatus.OK)
@@ -72,7 +72,7 @@ public class Controller {
     @GetMapping(value = "/download")
     public ResponseEntity<?> download() {
         Resource resource = null;
-        File file = iService.getData();
+        File file = service.getData();
         try {
             resource = new UrlResource(file.toURI());
         } catch (MalformedURLException e) {
@@ -86,7 +86,7 @@ public class Controller {
 
     @PostMapping(value = "/upload")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
-        return iService.setData(file)
+        return service.setData(file)
                 ? new ResponseEntity<>(HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
