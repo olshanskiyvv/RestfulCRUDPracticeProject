@@ -1,4 +1,4 @@
-# RestJavaProject
+# RestfulCRUDPracticeProject
 
 This is my study project. It is the CRUD application which consists of RESTful backend server implemented on Java with Spring Framework and frontend server implemented on React JS.
 
