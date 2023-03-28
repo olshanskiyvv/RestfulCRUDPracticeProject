@@ -18,8 +18,8 @@ public class Service implements IService {
     private static AtomicInteger WEAPON_ID_HOLDER;
 
     @Autowired
-    public Service(Repository iRepository) {
-        WEAPON_REPOSITORY = iRepository;
+    public Service(Repository repository) {
+        WEAPON_REPOSITORY = repository;
         List<Weapon> weaponList = WEAPON_REPOSITORY.readAll();
         Integer maxId = 0;
         for (Weapon weapon : weaponList) {
