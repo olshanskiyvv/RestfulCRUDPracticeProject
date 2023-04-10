@@ -2,13 +2,6 @@
 <Weapons>
     <weaponMap>
         <entry>
-            <key>1</key>
-            <value>
-                <SerialNumber>1</SerialNumber>
-                <Name>M16</Name>
-            </value>
-        </entry>
-        <entry>
             <key>2</key>
             <value>
                 <SerialNumber>2</SerialNumber>
