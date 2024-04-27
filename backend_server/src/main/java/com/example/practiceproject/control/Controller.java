@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@RequestMapping
 public class Controller {
     private final IService service;
 
@@ -27,13 +28,13 @@ public class Controller {
         this.service = serviceImpl;
     }
 
-    @PostMapping(value = "/")
+    @PostMapping()
     public ResponseEntity<?> create(@RequestBody Weapon weapon) {
         service.create(weapon);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping()
     public ResponseEntity<List<Weapon>> readAll() {
         final List<Weapon> weapons = service.readAll();
 

@@ -2,6 +2,16 @@
 <Weapons>
     <weaponMap>
         <entry>
+            <key>4</key>
+            <value>
+                <SerialNumber>4</SerialNumber>
+                <Type>gun</Type>
+                <Name>ak-47</Name>
+                <Capacity>50</Capacity>
+                <Weight>250.0</Weight>
+            </value>
+        </entry>
+        <entry>
             <key>2</key>
             <value>
                 <SerialNumber>2</SerialNumber>
