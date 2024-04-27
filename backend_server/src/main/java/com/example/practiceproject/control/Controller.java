@@ -1,7 +1,7 @@
 package com.example.practiceproject.control;
 
 import com.example.practiceproject.model.Weapon;
-import com.example.practiceproject.service.Service;
+import com.example.practiceproject.service.ServiceImpl;
 import com.example.practiceproject.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -23,8 +23,8 @@ public class Controller {
     private final IService service;
 
     @Autowired
-    public Controller(Service service) {
-        this.service = service;
+    public Controller(ServiceImpl serviceImpl) {
+        this.service = serviceImpl;
     }
 
     @PostMapping(value = "/")
@@ -34,7 +34,7 @@ public class Controller {
     }
 
     @GetMapping(value = "/")
-    public ResponseEntity<List<Weapon>> read() {
+    public ResponseEntity<List<Weapon>> readAll() {
         final List<Weapon> weapons = service.readAll();
 
         return weapons != null &&  !weapons.isEmpty()

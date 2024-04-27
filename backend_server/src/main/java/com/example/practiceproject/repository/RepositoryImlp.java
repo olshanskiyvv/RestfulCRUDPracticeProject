@@ -3,6 +3,7 @@ package com.example.practiceproject.repository;
 import com.example.practiceproject.model.Weapon;
 import com.example.practiceproject.model.WeaponMap;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.bind.JAXBContext;
@@ -20,9 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@org.springframework.stereotype.Repository
-public class Repository implements IRepository {
-
+@Repository
+public class RepositoryImlp implements IRepository {
     private static final Map<Integer, Weapon> WEAPON_REPOSITORY_MAP = new HashMap<>();
     private static final String filePath = "src/main/java/com/example/practiceproject/repository/weapons.xml";
 
@@ -67,6 +67,7 @@ public class Repository implements IRepository {
                 System.out.print("XML read error:\n" + e);
             }
         }
+
         return WEAPON_REPOSITORY_MAP.get(serial_number);
     }
 
@@ -122,7 +123,7 @@ public class Repository implements IRepository {
     @Override
     @Async
     public boolean setData(MultipartFile file) {
-        Path path = Paths.get(Repository.filePath);
+        Path path = Paths.get(RepositoryImlp.filePath);
         try {
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
             this.XmlToMap();

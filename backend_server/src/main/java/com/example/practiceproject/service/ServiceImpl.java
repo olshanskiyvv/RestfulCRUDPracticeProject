@@ -2,9 +2,10 @@ package com.example.practiceproject.service;
 
 import com.example.practiceproject.model.Weapon;
 import com.example.practiceproject.repository.IRepository;
-import com.example.practiceproject.repository.Repository;
+import com.example.practiceproject.repository.RepositoryImlp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -12,14 +13,14 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@org.springframework.stereotype.Service
-public class Service implements IService {
+@Service
+public class ServiceImpl implements IService {
     private static IRepository WEAPON_REPOSITORY;
     private static AtomicInteger WEAPON_ID_HOLDER;
 
     @Autowired
-    public Service(Repository repository) {
-        WEAPON_REPOSITORY = repository;
+    public ServiceImpl(RepositoryImlp repositoryImlp) {
+        WEAPON_REPOSITORY = repositoryImlp;
         List<Weapon> weaponList = WEAPON_REPOSITORY.readAll();
         Integer maxId = 0;
         for (Weapon weapon : weaponList) {

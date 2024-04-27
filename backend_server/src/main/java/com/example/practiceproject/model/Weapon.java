@@ -78,23 +78,4 @@ public class Weapon {
     public void setRateOfFire(Integer rate_of_fire) {
         this.rate_of_fire = rate_of_fire;
     }
-
-    @Override
-    public String toString() {
-        return "<Weapon> \n    <SerialNumber>" +
-                ((this.serial_number == null) ? "null" : this.serial_number.toString()) +
-                "</Serial_number> \n    <Type>" +
-                ((this.type == null) ? "null" : this.type) +
-                "</Type> \n    <Name>" +
-                ((this.name == null) ? "null" : this.name) +
-                "</Name> \n    <SightingRange>" +
-                ((this.sighting_range == null) ? "null" : this.sighting_range.toString()) +
-                "</SightingRange> \n    <Capacity>" +
-                ((this.capacity == null) ? "null" : this.capacity.toString()) +
-                "</Capacity> \n    <Weight>" +
-                ((this.weight == null) ? "null" : this.weight.toString()) +
-                "</Weight> \n    <RateOfFire>" +
-                ((this.rate_of_fire == null) ? "null" : this.rate_of_fire.toString()) +
-                "</RateOfFire> \n</Weapon>";
-    }
 }
